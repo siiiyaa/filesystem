@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use DateTimeInterface;
 
 class File extends Model
 {
@@ -29,4 +30,11 @@ class File extends Model
         }
         return $value;
     }
+
+    public function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
+
+
 }
