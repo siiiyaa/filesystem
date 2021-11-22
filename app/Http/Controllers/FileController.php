@@ -95,9 +95,8 @@ class FileController extends Controller
         $user = ['id' => 1];
         $file_name = $request->input('file_name');
 
-        $save_path = "file/{$user['id']}";
+        $save_path = "file/{$user['id']}/";
         $is_exists = Storage::disk('public')->exists($save_path.$file_name);
-
         if ($is_exists) {
             return $this->error([], '文件已存在');
         } else {
